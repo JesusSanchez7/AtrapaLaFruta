@@ -1,8 +1,19 @@
 package atrapa_la_fruta;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class ventana {
+	
+	public void crearMenú() {
+		System.out.println("Elija un escenario de juego:");
+		System.out.println("Escenario 1");
+		System.out.println("Escenario 2");
+		System.out.println("Escenario 3");
+		System.out.println("Escenario 4");
+	}
 
 	public void dibujarEscenario(ArrayList<elemento> elementos, int WIDTH, int HEIGHT) {     
 		  char[][] escenarioTextual = new char[WIDTH][HEIGHT];  
@@ -29,7 +40,10 @@ public class ventana {
 		    System.out.printf("\n");     
 		  }  
 		}
+	
+	 
 		
 
 	}
+
 

@@ -2,4 +2,5 @@ package atrapa_la_fruta;
 
 public class main {
 
+	ventana Ventana= new ventana();
 }
