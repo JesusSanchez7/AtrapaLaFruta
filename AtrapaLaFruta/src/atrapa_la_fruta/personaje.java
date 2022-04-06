@@ -21,6 +21,10 @@ public class personaje extends elemento {
 	public void setVelocidad(int velocidad) {
 		this.velocidad = velocidad;
 	}
+	
+	public void mostrarDatos() {
+		System.out.println("Personaje" + "Posición"+this.posicionX +","+this.posicionY);
+	}
 
 
 	protected void saltar() {

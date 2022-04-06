@@ -1,8 +1,0 @@
-package atrapa_la_fruta;
-
-public class mainClass {
-	public static void main()
-
-	ventana Ventana1= new ventana();
-	Ventana1.crearMenú();
-}

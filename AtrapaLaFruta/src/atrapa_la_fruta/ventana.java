@@ -41,7 +41,9 @@ public class ventana {
 		  }  
 		}
 	
-	 
+	  Timer timer = new Timer();
+	    timer.schedule(new TimerJuego(this), 0, 200);
+   
 		
 
 	}

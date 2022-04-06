@@ -20,6 +20,7 @@ public class fruta extends elemento{
 	}
 	
 	public void mostrarDatos() {
+		System.out.println("Fruta" + this.nombre + "puntos:" +this.puntos);
 		
 	}
 	
