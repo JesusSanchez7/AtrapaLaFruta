@@ -1,11 +1,16 @@
 package atrapa_la_fruta;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
 public class ventana {
+	
+	Scanner scanner = new Scanner(System.in);
+	
+	public escenario Escenario = new escenario(40,40) ;
 	
 	public void crearMenú() {
 		System.out.println("Elija un escenario de juego:");
@@ -13,7 +18,26 @@ public class ventana {
 		System.out.println("Escenario 2");
 		System.out.println("Escenario 3");
 		System.out.println("Escenario 4");
+		
+		int choice = scanner.nextInt();
+		switch(choice) {
+		case 1:
+			this.Escenario.crearEscenario1();
+			break;
+		case 2:
+			this.Escenario.crearEscenario2();
+			break;
+		case 3:
+			this.Escenario.crearEscenario3();
+			break;
+		case 4:
+			this.Escenario.crearEscenario4();
+			break;
+			
+		
+		}
 	}
+	
 
 	public void dibujarEscenario(ArrayList<elemento> elementos, int WIDTH, int HEIGHT) {     
 		  char[][] escenarioTextual = new char[WIDTH][HEIGHT];  
@@ -44,7 +68,13 @@ public class ventana {
 	  Timer timer = new Timer();
 	    timer.schedule(new TimerJuego(this), 0, 200);
    
-		
+		public Boolean jugando() {
+			Boolean resultado= this.Escenario.jugando();
+			if(resultado) {
+				dibujarEscenario(this.Escenario.getelementos(), WIDTH, HEIGHT);
+			}
+			return resultado;
+		}
 
 	}
 
