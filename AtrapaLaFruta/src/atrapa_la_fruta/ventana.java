@@ -8,10 +8,19 @@ import java.util.TimerTask;
 
 public class ventana {
 	
-	Scanner scanner = new Scanner(System.in);
+	//Creacion de objetos para la clase ventana:
+	Scanner scanner = new Scanner(System.in); //necesario para detectar el teclado
+	public escenario Escenario;
+	private final int ancho=60;
+	private final int alto=60;
+	private boolean movimiento=false;
 	
-	public escenario Escenario = new escenario(40,40) ;
+	//Constructor de la clase que genera un escenario nuevo:
+	public ventana() {
+		this.Escenario=new escenario(ancho,alto); 
+	}
 	
+	//genera el menú para elegir nivel en pantalla:
 	public void crearMenú() {
 		System.out.println("Elija un escenario de juego:");
 		System.out.println("Escenario 1");
@@ -33,12 +42,14 @@ public class ventana {
 		case 4:
 			this.Escenario.crearEscenario4();
 			break;
-			
-		
+		default:
+			System.out.println("Introduce un número del 1 al 4!"); //en caso que no haya introducido un número del 1 al 4
+			break;
 		}
 	}
 	
 
+	//Copiada del enunciado:
 	public void dibujarEscenario(ArrayList<elemento> elementos, int WIDTH, int HEIGHT) {     
 		  char[][] escenarioTextual = new char[WIDTH][HEIGHT];  
 		  for (int i = 0; i < WIDTH; i++) {     
@@ -65,17 +76,37 @@ public class ventana {
 		  }  
 		}
 	
-	  Timer timer = new Timer();
-	    timer.schedule(new TimerJuego(this), 0, 200);
+	//Copiada del enunciado(de momento da error):
+	Timer timer = new Timer();
+	timer.schedule(new TimerJuego(this), 0, 200);
    
-		public Boolean jugando() {
-			Boolean resultado= this.Escenario.jugando();
-			if(resultado) {
-				dibujarEscenario(this.Escenario.getelementos(), WIDTH, HEIGHT);
+	//Método que verifica que estamos jugando para darle movimiento al personaje
+	public boolean jugando() {
+		boolean verificar = true;
+		if(verificar == true) {
+			this.movimiento=true;
+			dibujarEscenario(this.Escenario.getElementos(), ancho, alto);
+			if(this.movimiento) {
+				this.Escenario.jugando();
+				this.Escenario.Personaje.avanzar();
+				}
 			}
-			return resultado;
-		}
-
+		return verificar;
 	}
+	
+	String entrada= scanner.nextLine();{
+	while(true) {
+		String entrada = scanner.nextLine();
+		if(entrada.equals(" ")) {
+		this.Escenario.salto();	
+		}
+	}		
+		
+	}
+	
+	
+	
+	
+}
 
 

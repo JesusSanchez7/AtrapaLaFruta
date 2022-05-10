@@ -11,6 +11,53 @@ public class escenario {
 	private int contEfecto=0;
 	private int contSaltar=0;
 	
+	//Constructor de escenario:
+	public escenario(int ancho, int alto) {
+		this.ancho=ancho;
+		this.alto=alto;
+		this.elementos=new ArrayList<elemento>();
+	}
+	
+	//Sets y gets
+	public int getAncho() {
+		return ancho;
+	}
+	
+	public int getAlto() {
+		return alto;
+	}
+	
+	public ArrayList<elemento> getElementos(){
+		return elementos;
+	}
+	
+	public void setAncho(int ancho) {
+		this.ancho=ancho;
+	}
+	
+	public void setAlto(int alto) {
+		this.alto=alto;
+	}
+	
+	public void setElementos(ArrayList<elemento> elementos) {
+		this.elementos=elementos;
+	}
+	
+	
+	//Método que se ejecuta mientras el programa esta corriendo:
+	public Boolean jugando() {
+		ArrayList<elemento> elementos2 = new ArrayList<elemento>();
+		elementos2 = this.getElementos();
+		for(int i = 0; i<elementos2.size(); i++) {
+			if(i > 0) {
+				elemento e = this.elementos.get(i);
+				this.Personaje.HaTocado(e);
+	            }
+		  }
+		return true;
+	}
+	
+	//Método para limpiar la ventana(visto del profesor):
 	public static void cleanScreen() {
 		try {
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -19,80 +66,57 @@ public class escenario {
 	}
 	}
 	
-	public void mostrarElementoEscenario() {
-		for (elemento Elemento: elementos) {
-			Elemento.mostrarDatos();
-		}
-	}
-	
-	public Boolean jugando() {
-		
-	}
-		
-	
-	public escenario(int ancho, int alto) {
-		this.alto=alto;
-		this.ancho=ancho;
-		this.elementos=new ArrayList<elemento>();
-		
-	}
-	public ArrayList<elemento> getelementos(){
-	return elementos;
-	}
-	public void setelementos(ArrayList<elemento> elementos) {
-		this.elementos=elementos;
-	}
-	
 
-	public void agregarFruta(int posicionX, int posicionY, int ancho, int alto, int puntos, String nombre, char simbolo, String imagen){
-		elementos.add(new fruta(posicionX, posicionY, ancho, alto, puntos, nombre, simbolo, imagen));
+	//Método para agregar una fruta al escenario
+	//el nombre y los puntos se añaden dependiendo del tipo de fruta que sea
+	public void agregarFruta(int posicionX, int posicionY, int ancho, int alto, char simbolo, String imagen){
+		fruta FRUTA=new fruta(posicionX, posicionY, ancho, alto, simbolo, imagen);
+		elementos.add(FRUTA);
+		switch(simbolo) {
+		case 'D':
+		FRUTA.agregarFrutaDorada(posicionX, posicionY);
+		break;
+		case 'G':
+		FRUTA.agregarFrutaDragon(posicionX, posicionY);
+		break;
+		case 'P':
+		FRUTA.agregarFrutaPlateada(posicionX, posicionY);
+		break;
+		case 'H':
+		FRUTA.agregarFrutaHarryPotter(posicionX, posicionY);
+		break;
+		case 'V':
+		FRUTA.agregarFrutaVenenosa(posicionX, posicionY);
+		break;
+	}
 	}
 	
-	public void agregarFrutaDragon(int posicionX, int posicionY) {
-		
-	}
 	
-	public void agregarFrutaPlateada(int posicionX, int posicionY) {
-		
-	}
-	
-	public void agregarFrutaDorada(int posicionX, int posicionY) {
-		
-	}
-	
-	public void agregarFrutaHarryPotter(int posicionX, int posicionY) {
-		
-	}
-	public void agregarFrutaVenenosa(int posicionX, int posicionY) {
-		
-	}
-	
-	public void agregarPersonaje() {
-		Personaje=new personaje(1,1,10,10,1,'O',"Soy_un_personaje");
+	//Creador de personaje(X, Y, ancho, alto, velocidad, símbolo, imagen):
+	public void agregarPersonaje(int posicionX,int posicionY,int ancho,int alto,int velocidad) {
+		this.Personaje=new personaje(posicionX,posicionY,ancho,alto,velocidad);
 		elementos.add(Personaje);
-		
-		
 	}
+	
+	//Método que va a permitir hacer que el personaje salte llamando al metodo saltar:
+	public void salto() {
+		this.Personaje.saltar();
+	}
+	
 	
 	public void crearEscenario1() {
-		this.agregarPersonaje();
-		this.agregarFrutaDragon(3,1);
-		this.agregarFrutaPlateada(20,1);
+		
 	}
+	
 	public void crearEscenario2() {
-		this.agregarPersonaje();
-		this.agregarFrutaDorada(6,1);
-		this.agregarFrutaVenenosa(23, 1);
+				
 	}
+	
 	public void crearEscenario3() {
-		this.agregarPersonaje();
-		this.agregarFrutaHarryPotter(7,1);
-	}
+			
+			}
+			
 	public void crearEscenario4() {
-		this.agregarPersonaje();
-		this.agregarFrutaDragon(4,4);
-		this.agregarFrutaPlateada(19,4);
-	}
-	
-	
+			
+			}
 }

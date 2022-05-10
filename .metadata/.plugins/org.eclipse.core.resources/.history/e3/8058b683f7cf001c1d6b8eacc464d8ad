@@ -1,0 +1,122 @@
+package atrapa_la_fruta;
+
+import java.util.ArrayList;
+
+public class escenario {
+	
+	protected int ancho;
+	protected int alto;
+	protected personaje Personaje;
+	protected ArrayList<elemento> elementos;
+	private int contEfecto=0;
+	private int contSaltar=0;
+	
+	//Constructor de escenario:
+	public escenario(int ancho, int alto) {
+		this.ancho=ancho;
+		this.alto=alto;
+		this.elementos=new ArrayList<elemento>();
+	}
+	
+	//Sets y gets
+	public int getAncho() {
+		return ancho;
+	}
+	
+	public int getAlto() {
+		return alto;
+	}
+	
+	public ArrayList<elemento> getElementos(){
+		return elementos;
+	}
+	
+	public void setAncho(int ancho) {
+		this.ancho=ancho;
+	}
+	
+	public void setAlto(int alto) {
+		this.alto=alto;
+	}
+	
+	public void setElementos(ArrayList<elemento> elementos) {
+		this.elementos=elementos;
+	}
+	
+	
+	//Método que se ejecuta mientras el programa esta corriendo:
+	public Boolean jugando() {
+		ArrayList<elemento> elementos2 = new ArrayList<elemento>();
+		elementos2 = this.getElementos();
+		for(int i = 0; i<elementos2.size(); i++) {
+			if(i > 0) {
+				elemento e = this.elementos.get(i);
+				
+	            }
+		  }
+		return true;
+	}
+	
+	//Método para limpiar la ventana(visto del profesor):
+	public static void cleanScreen() {
+		try {
+			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		}
+		catch(Exception e) {
+	}
+	}
+	
+
+	//Método para agregar una fruta al escenario
+	//el nombre y los puntos se añaden dependiendo del tipo de fruta que sea
+	public void agregarFruta(int posicionX, int posicionY, int ancho, int alto, char simbolo, String imagen){
+		elementos.add(new fruta(posicionX, posicionY, ancho, alto, simbolo, imagen));
+	}
+	
+	public void agregarFrutaDragon(int posicionX, int posicionY) {
+		
+	}
+	
+	public void agregarFrutaPlateada(int posicionX, int posicionY) {
+		
+	}
+	
+	public void agregarFrutaDorada(int posicionX, int posicionY) {
+		
+	}
+	
+	public void agregarFrutaHarryPotter(int posicionX, int posicionY) {
+		
+	}
+	public void agregarFrutaVenenosa(int posicionX, int posicionY) {
+		
+	}
+	
+	//Creador de personaje(X, Y, ancho, alto, velocidad, símbolo, imagen):
+	public void agregarPersonaje() {
+		Personaje=new personaje(1,1,10,10,1,'O',"O");
+		elementos.add(Personaje);
+	}
+	
+	public void crearEscenario1() {
+		this.agregarPersonaje();
+		this.agregarFrutaDragon(3,1);
+		this.agregarFrutaPlateada(20,1);
+	}
+	public void crearEscenario2() {
+		this.agregarPersonaje();
+		this.agregarFrutaDorada(6,1);
+		this.agregarFrutaVenenosa(23, 1);
+	}
+	public void crearEscenario3() {
+		this.agregarPersonaje();
+		this.agregarFrutaHarryPotter(7,1);
+	}
+	public void crearEscenario4() {
+		this.agregarPersonaje();
+		this.agregarFrutaDragon(4,4);
+		this.agregarFrutaPlateada(19,4);
+	}
+	
+	
+}
