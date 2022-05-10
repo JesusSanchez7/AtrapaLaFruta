@@ -98,7 +98,7 @@ public class personaje extends elemento {
 	}
 	//Método para ver si el personaje ha tocado una fruta para cogerla:
 	public boolean HaTocado(elemento b) {
-		if(this.posicionX==b.getPosicionX() && this.posicionY==b.getPosicionY()) {
+		if(this.getPosicionX()==b.getPosicionX() && this.getPosicionY()==b.getPosicionY()) {
 			fruta F = new fruta (b.getPosicionX(),b.getPosicionY(),b.getAlto(),b.getAncho(),b.getSimbolo(),b.getImagen());
 			F.setFruta(F.getSimbolo());
 			this.cogeFruta(F);

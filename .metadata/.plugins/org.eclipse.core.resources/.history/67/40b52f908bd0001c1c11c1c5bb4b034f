@@ -18,6 +18,7 @@ public class TimerJuego extends TimerTask{
     	if(Consola.jugando()==false) {
     		cancel();
     		System.exit(0);
+    		escenario.cleanScreen();
     	}
     	else {
     	}

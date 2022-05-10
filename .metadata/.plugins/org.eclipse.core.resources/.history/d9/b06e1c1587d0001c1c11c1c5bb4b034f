@@ -46,54 +46,40 @@ public class ventana {
 			System.out.println("Introduce un número del 1 al 4!"); //en caso que no haya introducido un número del 1 al 4
 			break;
 		}
-		//Copiada del enunciado(de momento da error):
-		Timer timer = new Timer();
-		timer.schedule(new TimerJuego(this), 0, 200);
-		
-		scanner.nextLine();{
-			while(true) {
-				String entrada = scanner.nextLine();
-				if(entrada.equals(" ")) {
-				this.Escenario.salto();	
-				}
-			}		
-				
-			}
 	}
 	
 
 	//Copiada del enunciado:
-	public void dibujarEscenario(ArrayList<elemento> elementos, int WIDTH, int HEIGHT) { 
-		try {
-			 char[][] escenarioTextual = new char[WIDTH][HEIGHT];  
-			  for (int i = 0; i < WIDTH; i++) {     
-			    for (int j = 0; j < HEIGHT; j++) {           
-			      if (j==0) {              
-			        escenarioTextual[i][j] = '#';           
-			      }else {              
-			        escenarioTextual[i][j] = ' ';          
-			       }        
-			    }     
-			  }     
-			  for (elemento elemento: elementos) {      
-			    escenarioTextual[elemento.getPosicionX()][elemento.getPosicionY()] = elemento.getSimbolo();
-			  }     
-			  for (int y =HEIGHT - 1; y >= 0; y--) {        
-			    for (int x = 0; x < WIDTH; x++) {           
-			      if (y==0) {              
-			        System.out.printf("#");           
-			      }else {
-			        System.out.printf(Character.toString(escenarioTextual[x][y]));           
-			      }        
-			    }        
-			    System.out.printf("\n");     
-			  }  
-		}
-		  catch(ArrayIndexOutOfBoundsException e) {
-			  this.Escenario.Personaje.mostrarDatos();
-		  }
+	public void dibujarEscenario(ArrayList<elemento> elementos, int WIDTH, int HEIGHT) {     
+		  char[][] escenarioTextual = new char[WIDTH][HEIGHT];  
+		  for (int i = 0; i < WIDTH; i++) {     
+		    for (int j = 0; j < HEIGHT; j++) {           
+		      if (j==0) {              
+		        escenarioTextual[i][j] = '#';           
+		      }else {              
+		        escenarioTextual[i][j] = ' ';          
+		       }        
+		    }     
+		  }     
+		  for (elemento elemento: elementos) {      
+		      escenarioTextual[elemento.posicionX][elemento.posicionY] = elemento.getSimbolo();         
+		  }     
+		  for (int y =HEIGHT - 1; y >= 0; y--) {        
+		    for (int x = 0; x < WIDTH; x++) {           
+		      if (y==0) {              
+		        System.out.printf("#");           
+		      }else {
+		        System.out.printf(Character.toString(escenarioTextual[x][y]));           
+		      }        
+		    }        
+		    System.out.printf("\n");     
+		  }  
 		}
 	
+	//Copiada del enunciado(de momento da error):
+	Timer timer = new Timer();
+	timer.schedule(new TimerJuego(this), 0, 200);
+   
 	//Método que verifica que estamos jugando para darle movimiento al personaje
 	public boolean jugando() {
 		boolean verificar = true;
@@ -108,9 +94,18 @@ public class ventana {
 		return verificar;
 	}
 	
-
-	
+	String entrada= scanner.nextLine();{
+	while(true) {
+		String entrada = scanner.nextLine();
+		if(entrada.equals(" ")) {
+		this.Escenario.salto();	
+		}
+	}		
 		
+	}
+	
+	
+	
 	
 }
 

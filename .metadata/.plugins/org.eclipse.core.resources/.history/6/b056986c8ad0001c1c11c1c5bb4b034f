@@ -56,6 +56,14 @@ public class escenario {
 		return true;
 	}
 	
+	//Método para limpiar la ventana(visto del profesor):
+	public static void cleanScreen() {
+		try {
+			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		}
+		catch(Exception e) {
+	}
+	}
 	
 
 	//Método para agregar una fruta al escenario
@@ -97,14 +105,12 @@ public class escenario {
 	//Creacion de los distintos escenarios
 	public void crearEscenario1() {
 		this.agregarPersonaje(1, 1, 10, 10, 2);
-		this.agregarFruta(15, 1, 1, 1, 'D', "D");
-		this.agregarFruta(33, 1, 1, 1, 'P', "P");
+		this.agregarFruta(10, 1, 1, 1, 'D', "D");
+		this.agregarFruta(50, 1, 1, 1, 'P', "P");
 	}
 	
 	public void crearEscenario2() {
-		this.agregarPersonaje(1, 1, 10, 10, 2);
-		this.agregarFruta(13, 1, 1, 1, 'V', "V");
-		this.agregarFruta(53, 1, 1, 1, 'G', "G");
+				
 	}
 	
 	public void crearEscenario3() {

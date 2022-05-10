@@ -6,7 +6,7 @@ public class personaje extends elemento {
 	
 	protected int velocidad;
 	protected int desaparecer;
-	protected int contadorDesaparecer=0;
+	protected int contadorDesaparecer;
 	protected int contadorSaltar=0;
 	protected ArrayList<fruta> frutas;
 	private int contador=0;

@@ -78,7 +78,7 @@ public class personaje extends elemento {
 		}
 		//Comprobamos si el personaje esta saltando
 		if(this.contadorSaltar>0) {
-			if(this.contadorSaltar<3) {
+			if(this.contadorSaltar<6) {
 				this.contadorSaltar++;
 			}
 			//si no esta saltando o el salto ha acabado:

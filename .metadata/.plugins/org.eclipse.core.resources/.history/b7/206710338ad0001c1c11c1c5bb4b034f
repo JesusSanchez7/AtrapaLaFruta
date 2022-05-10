@@ -1,7 +1,6 @@
 package atrapa_la_fruta;
 
 import java.util.ArrayList;
-import java.io.IOException;
 
 public class escenario {
 	
@@ -9,6 +8,8 @@ public class escenario {
 	protected int alto;
 	protected personaje Personaje;
 	protected ArrayList<elemento> elementos;
+	private int contEfecto=0;
+	private int contSaltar=0;
 	
 	//Constructor de escenario:
 	public escenario(int ancho, int alto) {
@@ -56,12 +57,21 @@ public class escenario {
 		return true;
 	}
 	
+	//Método para limpiar la ventana(visto del profesor):
+	public static void cleanScreen() {
+		try {
+			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		}
+		catch(Exception e) {
+	}
+	}
 	
 
 	//Método para agregar una fruta al escenario
 	//el nombre y los puntos se añaden dependiendo del tipo de fruta que sea
 	public void agregarFruta(int posicionX, int posicionY, int ancho, int alto, char simbolo, String imagen){
 		fruta FRUTA=new fruta(posicionX, posicionY, ancho, alto, simbolo, imagen);
+		elementos.add(FRUTA);
 		switch(simbolo) {
 		case 'D':
 		FRUTA.agregarFrutaDorada(posicionX, posicionY);
@@ -79,7 +89,6 @@ public class escenario {
 		FRUTA.agregarFrutaVenenosa(posicionX, posicionY);
 		break;
 	}
-		elementos.add(FRUTA);
 	}
 	
 	
@@ -97,14 +106,12 @@ public class escenario {
 	//Creacion de los distintos escenarios
 	public void crearEscenario1() {
 		this.agregarPersonaje(1, 1, 10, 10, 2);
-		this.agregarFruta(15, 1, 1, 1, 'D', "D");
-		this.agregarFruta(33, 1, 1, 1, 'P', "P");
+		this.agregarFruta(10, 1, 1, 1, 'D', "D");
+		this.agregarFruta(50, 1, 1, 1, 'P', "P");
 	}
 	
 	public void crearEscenario2() {
-		this.agregarPersonaje(1, 1, 10, 10, 2);
-		this.agregarFruta(13, 1, 1, 1, 'V', "V");
-		this.agregarFruta(53, 1, 1, 1, 'G', "G");
+				
 	}
 	
 	public void crearEscenario3() {

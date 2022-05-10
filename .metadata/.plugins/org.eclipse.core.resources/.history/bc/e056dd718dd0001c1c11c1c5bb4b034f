@@ -98,7 +98,7 @@ public class escenario {
 	public void crearEscenario1() {
 		this.agregarPersonaje(1, 1, 10, 10, 2);
 		this.agregarFruta(15, 1, 1, 1, 'D', "D");
-		this.agregarFruta(33, 1, 1, 1, 'P', "P");
+		this.agregarFruta(63, 1, 1, 1, 'P', "P");
 	}
 	
 	public void crearEscenario2() {
