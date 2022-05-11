@@ -79,7 +79,6 @@ public class escenario {
 		FRUTA.agregarFrutaVenenosa(posicionX, posicionY);
 		break;
 	}
-		//una vez hemos añadido al escenario el tipo de fruta, la añadimos al array de elementos.
 		elementos.add(FRUTA);
 	}
 	
@@ -111,9 +110,9 @@ public class escenario {
 	public void crearEscenario3() {
 		this.agregarPersonaje(1, 1, 10, 10, 2);
 		this.agregarFruta(13, 1, 1, 1, 'H', "H");
-	}
+			}
 			
 	public void crearEscenario4() {
 			
-	}
+			}
 }

@@ -52,7 +52,7 @@ public class fruta extends elemento{
 		return puntos;
 	}
 	
-	//set(lo usaremos cuando haya que especificar que fruta hemos cogido)
+	//set(para cuando haya que decir que fruta hemos cogido)
 	public void setFruta(char simbolo) {
 		switch(simbolo) {
 		case 'D':
@@ -105,7 +105,6 @@ public class fruta extends elemento{
 		this.posicionY=posicionY;
 	}
 	
-	//Modificamos el string para las frutas
 	public void mostrarDatos() {
 		System.out.println("Fruta" + this.nombre + "puntos:" +this.puntos);	
 	}

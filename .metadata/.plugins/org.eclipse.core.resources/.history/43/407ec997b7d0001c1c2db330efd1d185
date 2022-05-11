@@ -52,15 +52,14 @@ public class ventana {
 		Timer timer = new Timer();
 		timer.schedule(new TimerJuego(this), 0, 200);
 		
-		//Añadimos un scanner que será el que detecte el boton de salto
 		scanner.nextLine();{
 			while(true) {
-				//Haciendo esto, arreglamos el error que había que no funcionaba el salto. (No entiendo porque la tecla es enter y tampoco porque así si funciona, me dijo como solucionarlo un compañero)
 				String entrada = scanner.nextLine();
 				if(entrada.equals("")) {
 				this.Escenario.salto();	
 				}
-			}				
+			}		
+				
 			}
 	}
 	
@@ -92,7 +91,7 @@ public class ventana {
 			    System.out.printf("\n");     
 			  }  
 		}
-		//hacemos el catch de la interrupción que salta al terminar(se sale del límite) y llamamos a mostrarDatos..
+		//hacemos el catch de la interrupción que salta al terminar.
 		  catch(ArrayIndexOutOfBoundsException e) {
 			  this.Escenario.Personaje.mostrarDatos();
 		  }
@@ -103,7 +102,6 @@ public class ventana {
 		boolean verificar = true;
 		if(verificar == true) {
 			this.movimiento=true;
-			//Inicializa el escenario
 			dibujarEscenario(this.Escenario.getElementos(), ancho, alto);
 			if(this.movimiento) {
 				this.Escenario.jugando();
