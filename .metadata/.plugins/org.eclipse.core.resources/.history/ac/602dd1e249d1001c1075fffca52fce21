@@ -115,7 +115,6 @@ public class escenario {
 			
 	public void crearEscenario4() {
 		this.agregarPersonaje(1, 1, 10, 10, 2);
-		//No se por que hay posiciones en las que no coge las frutas(p.e en 14 no coge D)
 		this.agregarFruta(13, 3, 1, 1, 'D', "D");
 		this.agregarFruta(51, 3, 1, 1, 'P', "P");
 	}
